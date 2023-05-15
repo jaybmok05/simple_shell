@@ -11,26 +11,45 @@ int main(int argc, char *argv[])
 {
 	char command[BUFFER_SIZE];
 
-	do {
-		display_prompt();
+	/* check if the shell is running in interative node */
 
-		if (fgets(command, sizeof(command), stdin) == NULL)
-		{
-			/* End of file (Ctrl+D) reached */
-			printf("\n");
-			break;
-		}
+	if (isatty(STDIN_FILENO))
+	{
 
-		/* the trailing newline character is removed*/
-		command[strcspn(command, "\n")] = '\0';
+		do {
+			display_prompt();
+			fflush(stdout);
+
+			if (fgets(command, sizeof(command), stdin) == NULL)
+			{
+				/* End of file (Ctrl+D) reached */
+				printf("\n");
+				break;
+			}
+
+			/* the trailing newline character is removed*/
+			command[strcspn(command, "\n")] = '\0';
 		
-		/* take the command to tokenization and execution */
-		command_exe(command, argc, argv);
+			/* take the command to tokenization and execution */
+			command_exe(command, argc, argv);
 
-	} while (1);
+		} while (1);
+
+	}
+	else
+	{
+		while (fgets(command, sizeof(command), stdin) != NULL)
+		{
+			command[strcspn(command, "\n")] = '\0';
+
+			command_exe(command, argc, argv);
+		}
+	}
 
 	return (0);
 }
+
+
 
 /**
  * display_prompt - this function displays the prompt for the user

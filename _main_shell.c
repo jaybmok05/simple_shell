@@ -23,17 +23,10 @@ int main(int argc, char *argv[])
 
 		/* the trailing newline character is removed*/
 		command[strcspn(command, "\n")] = '\0';
+		
+		/* take the command to tokenization and execution */
+		command_exe(command, argc, argv);
 
-		if (argc == 1)
-		{
-			/*Handles commands with no arguments*/
-			command_exe(1, argv);
-		}
-		else
-		{
-			/*argv[0] = command, argv[1] 1st arguments...argv[N]*/
-			command_exe(argc, argv);
-		}
 	} while (1);
 
 	return (0);

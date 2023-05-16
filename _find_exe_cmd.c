@@ -10,9 +10,10 @@ char *find_exe(char *command)
 {
 	char *path, *token, *exe_path, *cwd_path;
 	char cwd[PATH_MAX];
-	struct stat sb;
 
 	path = getenv("PATH");
+
+	printf("the path: %s\n", path);
 
 	cwd_path = malloc(PATH_MAX + strlen(path) + 2);
 	if (cwd_path == NULL)
@@ -34,11 +35,10 @@ char *find_exe(char *command)
 
 	while (token != NULL)
 	{
-		exe_path = malloc(strlen(token) + strlen(command) + 2);
-		sprintf(exe_path, "%s:%s", token, command);
-
-		if (stat(exe_path, &sb) == 0 && sb.st_mode & S_IXUSR)
+		exe_path = find_exe_in_dir(token, command);
+		if (exe_path != NULL)
 		{
+			free(cwd_path);
 			return (exe_path);
 		}
 		free(exe_path);

@@ -6,15 +6,12 @@
  * @command: the command to execute
  */
 
-extern char **environ;
-
 void command_exe(char *command, int argc, char *argv[])
 {
 	char *token, *path;
 	pid_t pid;
 	int status, index = 0;
 	char *args[BUFFER_SIZE];
-	char **env = environ;
 	
 	/* Tokenize the command string */
 	token = strtok(command, " ");
@@ -31,36 +28,15 @@ void command_exe(char *command, int argc, char *argv[])
 
 	if (strcmp(args[0], "exit") == 0)
 	{
-		printf("Disconnected...\n");
-		exit(EXIT_SUCCESS);
+		exit_shell(args);
 	}
-
-	/* check if the command is "env" */
-	if (strcmp(args[0], "env") == 0)
+	else if (strcmp(args[0], "env") == 0)
 	{
-		while (*env != NULL)
-		{
-			printf("%s\n", *env);
-			env++;
-		}
-		return;
+		print_env();
 	}
-
-	/* check if the command is "cd" */
-	if (strcmp(args[0], "cd") == 0)
+	else if (strcmp(args[0], "cd") == 0)
 	{
-		if (argc > 1)
-		{
-			if (chdir(argv[1]) != 0)
-			{
-				perror("Failed to change directory");
-				return;
-			}
-		}
-		else
-		{
-			printf("Usage: cd <directory>\n");
-		}
+		change_dir(argc, argv);
 		return;
 	}
 

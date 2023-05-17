@@ -22,4 +22,8 @@ void display_prompt(void);
 char *find_exe(char *command);
 char *find_exe_in_dir(const char *directory, const char *command);
 char *construct_path(const char *directory, const char *command);
+int exit_shell(char **args);
+void print_env(void);
+void change_dir(int argc, char *argv[]);
+
 #endif /* MY_SHELL_H */

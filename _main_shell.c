@@ -10,6 +10,12 @@
 int main(int argc, char *argv[])
 {
 	char command[BUFFER_SIZE];
+	char *token;
+	int index = 0;
+	char *args[BUFFER_SIZE];
+
+	(void)argc;
+	(void)argv;
 
 	/* check if the shell is running in interative node */
 
@@ -29,9 +35,27 @@ int main(int argc, char *argv[])
 
 			/* the trailing newline character is removed*/
 			command[strcspn(command, "\n")] = '\0';
-		
-			/* take the command to tokenization and execution */
-			command_exe(command, argc, argv);
+
+			/* Tokenize the command string */
+			token = strtok(command, " ");
+			while (token != NULL && index < BUFFER_SIZE - 1)
+			{
+				args[index++] = token;
+				token = strtok(NULL, " ");
+			}
+
+			/* Mark the end of the arguments array with NULL */
+			args[index] = NULL;
+
+			/* check if a command is a builtin command and execute*/
+			if (is_builtin(args))
+			{
+				builtin_com_exe(args);
+			}
+			else
+			{
+				command_exe(args);
+			}
 
 		} while (1);
 
@@ -42,7 +66,23 @@ int main(int argc, char *argv[])
 		{
 			command[strcspn(command, "\n")] = '\0';
 
-			command_exe(command, argc, argv);
+			token = strtok(command, " ");
+			while (token != NULL && index < BUFFER_SIZE - 1)
+			{
+				args[index++] = token;
+				token = strtok(NULL, " ");
+			}
+
+			args[index] = NULL;
+
+			if (is_builtin(args))
+			{
+				builtin_com_exe(args);
+			}
+			else
+			{
+				command_exe(args);
+			}
 		}
 	}
 

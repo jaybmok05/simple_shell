@@ -17,9 +17,15 @@
 
 /* list of function prototypes */
 
-void command_exe(char *command, int argc, char *argv[]);
+void command_exe(char **args);
 void display_prompt(void);
 char *find_exe(char *command);
+void exit_shell(void);
+int is_builtin(char **args);
+void builtin_com_exe(char **args);
+void exit_shell(void);
+void print_env(void);
 char *find_exe_in_dir(const char *directory, const char *command);
 char *construct_path(const char *directory, const char *command);
+
 #endif /* MY_SHELL_H */

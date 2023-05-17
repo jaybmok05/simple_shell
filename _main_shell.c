@@ -9,7 +9,8 @@
 
 int main(int argc, char *argv[])
 {
-	char command[BUFFER_SIZE];
+	char *command = NULL;
+	size_t cmd_size = 0;
 
 	/* check if the shell is running in interative node */
 
@@ -20,7 +21,7 @@ int main(int argc, char *argv[])
 			display_prompt();
 			fflush(stdout);
 
-			if (fgets(command, sizeof(command), stdin) == NULL)
+			if (getline(&command, &cmd_size, stdin) == -1)
 			{
 				/* End of file (Ctrl+D) reached */
 				printf("\n");
@@ -38,7 +39,7 @@ int main(int argc, char *argv[])
 	}
 	else
 	{
-		while (fgets(command, sizeof(command), stdin) != NULL)
+		while (getline(&command, &cmd_size, stdin) == -1)
 		{
 			command[strcspn(command, "\n")] = '\0';
 

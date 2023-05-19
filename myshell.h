@@ -26,4 +26,10 @@ int exit_shell(char **args);
 void print_env(void);
 void change_dir(int argc, char *argv[]);
 
+ssize_t own_getline(char **lineptr, size_t *n, FILE *stream);
+void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
+
+void assign_chars(char **lineptr, size_t *line_s,
+char *buffer, size_t buf_size);
+
 #endif /* MY_SHELL_H */

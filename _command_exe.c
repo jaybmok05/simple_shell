@@ -4,6 +4,8 @@
  * command_exe - this function will simply execute the command
  * passed.
  * @command: the command to execute
+ * @argc: the number of arhuments
+ * @argv: the vector array of arguments
  */
 
 void command_exe(char *command, int argc, char *argv[])

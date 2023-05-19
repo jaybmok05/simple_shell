@@ -21,7 +21,7 @@ int main(int argc, char *argv[])
 			display_prompt();
 			fflush(stdout);
 
-			if (getline(&command, &cmd_size, stdin) == -1)
+			if (own_getline(&command, &cmd_size, stdin) == -1)
 			{
 				/* End of file (Ctrl+D) reached */
 				printf("\n");
@@ -39,7 +39,7 @@ int main(int argc, char *argv[])
 	}
 	else
 	{
-		while (getline(&command, &cmd_size, stdin) == -1)
+		while (own_getline(&command, &cmd_size, stdin) == -1)
 		{
 			command[strcspn(command, "\n")] = '\0';
 

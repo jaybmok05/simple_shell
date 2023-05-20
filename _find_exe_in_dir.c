@@ -28,7 +28,7 @@ char *find_exe_in_dir(const char *directory, const char *command)
 	while ((entry = readdir(dir)) != NULL)
 	{
 		/*check if the command enter is in the directory entry*/
-		if (strcmp(entry->d_name, command) == 0)
+		if (_strcmp(entry->d_name, command) == 0)
 		{
 			/*make the full path "path_dir/command"*/
 			path = construct_path(directory, command);
@@ -62,8 +62,8 @@ char *find_exe_in_dir(const char *directory, const char *command)
 /*with this function we create the full path to the commands*/
 char *construct_path(const char *directory, const char *command)
 {
-	size_t directory_len = strlen(directory);
-	size_t command_len = strlen(command);
+	size_t directory_len = _strlen(directory);
+	size_t command_len = _strlen(command);
 	char *path = malloc(directory_len + command_len + 2);
 
 	if (path != NULL)

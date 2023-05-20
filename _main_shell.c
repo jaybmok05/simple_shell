@@ -60,5 +60,5 @@ void display_prompt(void)
 {
 	char *prompt = "my_shell$ ";
 
-	write(STDOUT_FILENO, prompt, strlen(prompt));
+	write(STDOUT_FILENO, prompt, _strlen(prompt));
 }

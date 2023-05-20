@@ -13,7 +13,7 @@ char *find_exe(char *command)
 
 	path = getenv("PATH");
 
-	cwd_path = malloc(PATH_MAX + strlen(path) + 2);
+	cwd_path = malloc(PATH_MAX + _strlen(path) + 2);
 	if (cwd_path == NULL)
 	{
 		perror("malloc");

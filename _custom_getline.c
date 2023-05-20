@@ -119,7 +119,7 @@ size_t buf_size)
 			break;
 		/* The existing buffer is large enough */
 		default:
-			strcpy(*lineptr, buffer);
+			_strcpy(*lineptr, buffer);
 			free(buffer);
 			break;
 		}

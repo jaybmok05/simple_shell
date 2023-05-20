@@ -32,4 +32,8 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
 void assign_chars(char **lineptr, size_t *line_s,
 char *buffer, size_t buf_size);
 
+size_t _strlen(const char *str);
+int _strcmp(const char *str1, const char *str2);
+char *_strcpy(char *dest, char *src);
+
 #endif /* MY_SHELL_H */

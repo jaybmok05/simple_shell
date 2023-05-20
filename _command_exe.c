@@ -26,17 +26,17 @@ void command_exe(char *command, int argc, char *argv[])
 	/* Mark the end of the arguments array with NULL */
 	args[index] = NULL;
 
-	/* check if the command is "exit" */
+	/* check if the command is one of builtins and execute */
 
-	if (strcmp(args[0], "exit") == 0)
+	if (_strcmp(args[0], "exit") == 0)
 	{
 		exit_shell(args);
 	}
-	else if (strcmp(args[0], "env") == 0)
+	else if (_strcmp(args[0], "env") == 0)
 	{
 		print_env();
 	}
-	else if (strcmp(args[0], "cd") == 0)
+	else if (_strcmp(args[0], "cd") == 0)
 	{
 		change_dir(argc, argv);
 		return;

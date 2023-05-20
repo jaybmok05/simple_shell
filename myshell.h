@@ -35,5 +35,6 @@ char *buffer, size_t buf_size);
 size_t _strlen(const char *str);
 int _strcmp(const char *str1, const char *str2);
 char *_strcpy(char *dest, char *src);
+void remove_newline(char *command);
 
 #endif /* MY_SHELL_H */

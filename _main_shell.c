@@ -29,7 +29,7 @@ int main(int argc, char *argv[])
 			}
 
 			/* the trailing newline character is removed*/
-			command[strcspn(command, "\n")] = '\0';
+			remove_newline(command);
 		
 			/* take the command to tokenization and execution */
 			command_exe(command, argc, argv);
@@ -41,7 +41,7 @@ int main(int argc, char *argv[])
 	{
 		while (own_getline(&command, &cmd_size, stdin) == -1)
 		{
-			command[strcspn(command, "\n")] = '\0';
+			remove_newline(command);
 
 			command_exe(command, argc, argv);
 		}

@@ -69,7 +69,7 @@ char *construct_path(const char *directory, const char *command)
 	if (path != NULL)
 	{
 		/*construct the full path "direectory/command*/
-		sprintf(path, "%s/%s", directory, command);
+		_sprintf(path, "%s/%s", directory, command);
 	}
 
 	return (path);

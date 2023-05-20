@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <string.h>
+#include <stdarg.h>
 #include <sys/types.h>
 #include <sys/wait.h>
 #include <sys/stat.h>
@@ -39,4 +40,6 @@ void remove_newline(char *command);
 char *_strtok(char str[], const char *delim);
 bool is_delimiter(char c, const char *delim);
 int cmp_chars(char str[], const char *delim);
+int _sprintf(char *buffer, const char *format, ...);
+
 #endif /* MY_SHELL_H */

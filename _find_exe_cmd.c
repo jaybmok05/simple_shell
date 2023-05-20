@@ -27,7 +27,7 @@ char *find_exe(char *command)
 		return (NULL);
 	}
 
-	sprintf(cwd_path, "%s:%s", cwd, path);
+	_sprintf(cwd_path, "%s:%s", cwd, path);
 
 	token = _strtok(cwd_path, ":");
 

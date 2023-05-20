@@ -16,11 +16,11 @@ void command_exe(char *command, int argc, char *argv[])
 	char *args[BUFFER_SIZE];
 	
 	/* Tokenize the command string */
-	token = strtok(command, " ");
+	token = _strtok(command, " ");
 	while (token != NULL && index < BUFFER_SIZE - 1) 
 	{
 		args[index++] = token;
-		token = strtok(NULL, " ");
+		token = _strtok(NULL, " ");
 	}
 	
 	/* Mark the end of the arguments array with NULL */

@@ -12,7 +12,7 @@
 #include <fcntl.h>
 #include <errno.h>
 #include <dirent.h>
-
+#include <stdbool.h>
 #define BUFFER_SIZE 1024
 
 /* list of function prototypes */
@@ -36,5 +36,7 @@ size_t _strlen(const char *str);
 int _strcmp(const char *str1, const char *str2);
 char *_strcpy(char *dest, char *src);
 void remove_newline(char *command);
-
+char *_strtok(char str[], const char *delim);
+bool is_delimiter(char c, const char *delim);
+int cmp_chars(char str[], const char *delim);
 #endif /* MY_SHELL_H */

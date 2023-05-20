@@ -29,7 +29,7 @@ char *find_exe(char *command)
 
 	sprintf(cwd_path, "%s:%s", cwd, path);
 
-	token = strtok(cwd_path, ":");
+	token = _strtok(cwd_path, ":");
 
 	while (token != NULL)
 	{
@@ -40,7 +40,7 @@ char *find_exe(char *command)
 			return (exe_path);
 		}
 		free(exe_path);
-		token = strtok(NULL, ":");
+		token = _strtok(NULL, ":");
 	}
 	return (NULL);
 }

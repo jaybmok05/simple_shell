@@ -12,7 +12,7 @@ int exit_shell(char **args)
 
 	if (args[1] != NULL)
 	{
-		exit_status = atoi(args[1]);
+		exit_status = _atoi(args[1]);
 	}
 
 	exit(exit_status);

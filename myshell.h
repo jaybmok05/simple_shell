@@ -41,5 +41,7 @@ char *_strtok(char str[], const char *delim);
 bool is_delimiter(char c, const char *delim);
 int cmp_chars(char str[], const char *delim);
 int _sprintf(char *buffer, const char *format, ...);
+char *_getenv(const char *name);
+int _atoi(char *str);
 
 #endif /* MY_SHELL_H */

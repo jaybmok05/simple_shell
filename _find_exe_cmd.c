@@ -11,7 +11,7 @@ char *find_exe(char *command)
 	char *path, *token, *exe_path, *cwd_path;
 	char cwd[PATH_MAX];
 
-	path = getenv("PATH");
+	path = _getenv("PATH");
 
 	cwd_path = malloc(PATH_MAX + _strlen(path) + 2);
 	if (cwd_path == NULL)

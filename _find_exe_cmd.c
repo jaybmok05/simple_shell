@@ -15,7 +15,7 @@ char *find_exe(char *command)
 	{
 		if (access(command, X_OK) == 0)
 		{
-			return (strdup(command));
+			return (_strdup(command));
 		}
 		return (NULL);
 	}

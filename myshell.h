@@ -43,5 +43,6 @@ int cmp_chars(char str[], const char *delim);
 int _sprintf(char *buffer, const char *format, ...);
 char *_getenv(const char *name);
 int _atoi(char *str);
-
+char *_strdup(const char *s);
+void mem_cpy(void *destination, const void *source, unsigned int size);
 #endif /* MY_SHELL_H */

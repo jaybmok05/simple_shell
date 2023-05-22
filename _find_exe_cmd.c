@@ -11,6 +11,14 @@ char *find_exe(char *command)
 	char *path, *token, *exe_path, *cwd_path;
 	char cwd[PATH_MAX];
 
+	if (command[0] == '/')
+	{
+		if (access(command, X_OK) == 0)
+		{
+			return (strdup(command));
+		}
+		return (NULL);
+	}
 	path = _getenv("PATH");
 
 	cwd_path = malloc(PATH_MAX + _strlen(path) + 2);
@@ -42,5 +50,7 @@ char *find_exe(char *command)
 		free(exe_path);
 		token = _strtok(NULL, ":");
 	}
+	free(cwd_path);
+	free(command);
 	return (NULL);
 }

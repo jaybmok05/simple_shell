@@ -24,7 +24,7 @@ int main(int argc, char *argv[])
 			if (own_getline(&command, &cmd_size, stdin) == -1)
 			{
 				/* End of file (Ctrl+D) reached */
-				printf("\n");
+				_printf("\n");
 				break;
 			}
 

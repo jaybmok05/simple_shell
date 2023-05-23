@@ -48,7 +48,7 @@ void command_exe(char *command, int argc, char *argv[])
 	/*check if path is available*/
 	if (path == NULL)
 	{
-		printf("Error: ahh!! command not found:\n");
+		_printf("Error: ahh!! command not found:\n");
 		return;
 	}
 	/* Create a child process to execute the command */

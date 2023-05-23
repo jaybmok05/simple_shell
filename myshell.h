@@ -45,4 +45,6 @@ char *_getenv(const char *name);
 int _atoi(char *str);
 char *_strdup(const char *s);
 void mem_cpy(void *destination, const void *source, unsigned int size);
+int _printf(const char *format, ...);
+int _puts(char *str);
 #endif /* MY_SHELL_H */

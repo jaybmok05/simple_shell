@@ -51,6 +51,5 @@ char *find_exe(char *command)
 		token = _strtok(NULL, ":");
 	}
 	free(cwd_path);
-	free(command);
 	return (NULL);
 }

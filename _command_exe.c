@@ -61,7 +61,7 @@ void command_exe(char *command, int argc, char *argv[])
 	}
 	else if (pid == 0)
 	{
-		if (execv(path, args) == -1)
+		if (execve(path, args, environ) == -1)
 		{
 			perror("Failed to execute command");
 			exit(EXIT_FAILURE);

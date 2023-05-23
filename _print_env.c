@@ -3,7 +3,6 @@
 /**
  * print_env - prints environment of the current process
  */
-extern char **environ;
 
 void print_env(void)
 {
@@ -11,7 +10,6 @@ void print_env(void)
 
 	while (*env != NULL)
 	{
-		printf("%s\n", *env);
 		env++;
 	}
 }

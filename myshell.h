@@ -11,6 +11,7 @@
 #include <sys/stat.h>
 #include <limits.h>
 #include <fcntl.h>
+#include <ctype.h>
 #include <errno.h>
 #include <dirent.h>
 #include <stdbool.h>
@@ -51,5 +52,6 @@ int _printf(const char *format, ...);
 int _print_int(int num);
 int _puts(char *str);
 int _strncmp(const char *str1, const char *str2, size_t len);
+int _isspace(int c);
 
 #endif /* MY_SHELL_H */

@@ -15,6 +15,9 @@ void command_exe(char *command, int argc, char *argv[])
 	int status, index = 0;
 	char *args[BUFFER_SIZE];
 
+	while (_isspace (*command))
+		command++;
+
 	/* Tokenize the command string */
 	token = _strtok(command, " ");
 	while (token != NULL && index < BUFFER_SIZE - 1)

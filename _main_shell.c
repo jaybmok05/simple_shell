@@ -11,6 +11,7 @@ int main(int argc, char *argv[])
 {
 	char *command = NULL;
 	size_t cmd_size = 0;
+	ssize_t read;
 
 	/* check if the shell is running in interative node */
 
@@ -24,7 +25,6 @@ int main(int argc, char *argv[])
 			if (own_getline(&command, &cmd_size, stdin) == -1)
 			{
 				/* End of file (Ctrl+D) reached */
-				_printf("\n");
 				break;
 			}
 
@@ -39,9 +39,12 @@ int main(int argc, char *argv[])
 	}
 	else
 	{
-		while (own_getline(&command, &cmd_size, stdin) == -1)
+		while ((read = own_getline(&command, &cmd_size, stdin)) != -1)
 		{
-			remove_newline(command);
+			if (command[read - 1] == '\n')
+			{
+				command[read - 1] = '\0';
+			}
 
 			command_exe(command, argc, argv);
 		}
@@ -49,7 +52,6 @@ int main(int argc, char *argv[])
 
 	return (0);
 }
-
 
 
 /**

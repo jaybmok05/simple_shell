@@ -48,6 +48,7 @@ int _atoi(char *str);
 char *_strdup(const char *s);
 void mem_cpy(void *destination, const void *source, unsigned int size);
 int _printf(const char *format, ...);
+int _print_int(int num);
 int _puts(char *str);
 int _strncmp(const char *str1, const char *str2, size_t len);
 

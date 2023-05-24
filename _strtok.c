@@ -60,7 +60,7 @@ char *_strtok(char str[], const char *delim)
 
 
 /**
- * is_delimeter - a helper function to check if a character is
+ * is_delimiter - a helper function to check if a character is
  * a delimeter.
  * @c: the character to check against a delimeter
  * @delim: the delimter

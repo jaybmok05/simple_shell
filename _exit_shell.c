@@ -1,7 +1,7 @@
 #include "myshell.h"
 
 /**
- * exit_shell - terminates the shell 
+ * exit_shell - terminates the shell
  * @args: pointer to tokenized command string
  * Return: 0
  */

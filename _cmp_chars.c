@@ -27,7 +27,7 @@ int cmp_chars(char str[], const char *delim)
 		}
 		str_index++;
 	}
-	
+
 	if (str_index == match_count)
 	{
 		return (1);

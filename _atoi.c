@@ -23,7 +23,7 @@ int _atoi(char *str)
 			res = res + str[i] - '0';
 			if ((*(str + (i + 1)) >= '0') && (*(str + (i + 1)) <= '9'))
 			{
-				res *= 10; 
+				res *= 10;
 			}
 			else
 				break;

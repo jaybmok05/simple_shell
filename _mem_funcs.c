@@ -49,11 +49,11 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 }
 
 /**
- * _memcpy - a function that copies memory area.
+ * mem_cpy - a function that copies memory area.
  * Return: returns pointer dest
- * @dest: 1st parameter
- * @src: 2nd parameter
- * @n: 3rd parameter
+ * @destination: 1st parameter
+ * @source: 2nd parameter
+ * @size: 3rd parameter
  */
 
 void mem_cpy(void *destination, const void *source, unsigned int size)

@@ -30,7 +30,7 @@ int main(int argc, char *argv[])
 
 			/* the trailing newline character is removed*/
 			remove_newline(command);
-		
+
 			/* take the command to tokenization and execution */
 			command_exe(command, argc, argv);
 
@@ -58,7 +58,7 @@ int main(int argc, char *argv[])
 
 void display_prompt(void)
 {
-	char *prompt = "my_shell$ ";
+	char *prompt = "$ ";
 
 	write(STDOUT_FILENO, prompt, _strlen(prompt));
 }

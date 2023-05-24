@@ -14,15 +14,15 @@ void command_exe(char *command, int argc, char *argv[])
 	pid_t pid;
 	int status, index = 0;
 	char *args[BUFFER_SIZE];
-	
+
 	/* Tokenize the command string */
 	token = _strtok(command, " ");
-	while (token != NULL && index < BUFFER_SIZE - 1) 
+	while (token != NULL && index < BUFFER_SIZE - 1)
 	{
 		args[index++] = token;
 		token = _strtok(NULL, " ");
 	}
-	
+
 	/* Mark the end of the arguments array with NULL */
 	args[index] = NULL;
 

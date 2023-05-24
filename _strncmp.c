@@ -32,7 +32,7 @@ int _strncmp(const char *str1, const char *str2, size_t len)
 
 	for (i = 0; i < len - 1; i++)
 	{
-		if (str1[i] != str2[i] || str1[i] == '\0' || str2[i] =='\0')
+		if (str1[i] != str2[i] || str1[i] == '\0' || str2[i] == '\0')
 		{
 			return (str1[i] - str2[i]);
 		}

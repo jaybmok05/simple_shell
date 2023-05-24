@@ -21,14 +21,14 @@ char *_strtok(char str[], const char *delim)
 		{
 			return (NULL);
 		}
-		curr_token = str; /*Store first address*/
+		curr_token = str;/*Store first address*/
 		str_len = strlen(str);
 		str_end = &str[str_len]; /*Store last address*/
 	}
 
 	token_start = curr_token;
-	
-	if (token_start == str_end) /*Reaching the end*/
+
+	if (token_start == str_end)/*Reaching the end*/
 		return (NULL);
 
 	for (token_found = false; *curr_token; curr_token++)
@@ -46,8 +46,8 @@ char *_strtok(char str[], const char *delim)
 			if (curr_token == token_start)
 				token_start++;
 		}
-		if (!token_found && *curr_token) /*Str != Delim*/
-				token_found = true;
+		if (!token_found && *curr_token)/*Str != Delim*/
+			token_found = true;
 	}
 	/*Str == Delim*/
 	if (!token_found)

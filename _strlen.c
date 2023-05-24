@@ -1,7 +1,7 @@
 #include "myshell.h"
 
 /**
- * -strlen - determines the length of a string
+ * _strlen - determines the length of a string
  * @str: pointer to the string whose length is to be found
  * Return: length of a string
  */

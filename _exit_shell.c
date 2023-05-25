@@ -14,6 +14,6 @@ int exit_shell(char **args)
 	{
 		exit_status = _atoi(args[1]);
 	}
-
+	free(args[0]);
 	exit(exit_status);
 }

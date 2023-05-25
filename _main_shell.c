@@ -50,7 +50,8 @@ int main(int argc, char *argv[])
 		}
 	}
 
-	return (0);
+	free(command);
+	return (EXIT_SUCCESS);
 }
 
 

@@ -15,7 +15,7 @@ ssize_t own_getline(char **lineptr, size_t *n, FILE *stream)
 	int read_op;/*read_operation*/
 	static ssize_t input;
 	ssize_t ret_val;/*returned value*/
-	char *buffer, chars_read = 'z';
+	char *buffer, *new_buffer, chars_read = 'z';
 
 	switch (input)
 	{
@@ -57,7 +57,13 @@ ssize_t own_getline(char **lineptr, size_t *n, FILE *stream)
 		default:
 			if (input >= BUFFER_SIZE)
 			{
-				buffer = _realloc(buffer, input, input + 1);
+				new_buffer = _realloc(buffer, input, input + 1);
+				if (new_buffer == NULL)
+				{
+					free(buffer);
+					return (-1);
+				}
+				buffer = new_buffer;
 			}
 			buffer[input] = chars_read;
 			input++;

@@ -12,7 +12,7 @@ void command_exe(char *command, int argc, char *argv[])
 {
 	char *token, *path;
 	pid_t pid;
-	int status, index = 0;
+	int status, result, index = 0;
 	char *args[BUFFER_SIZE];
 
 	while (_isspace(*command))
@@ -49,6 +49,31 @@ void command_exe(char *command, int argc, char *argv[])
 		change_dir(argc, argv);
 		return;
 	}
+	else if (_strcmp(args[0], "setenv") == 0)
+	{
+		if (index >= 3)
+		{
+			result = set_env(args[1], args[2], 1);
+			if (result == -1)
+			{
+				_printf("failed to set environment variable: %s\n", args[1]);
+			}
+		}
+		return;
+	}
+	else if (_strcmp(args[0], "unsetenv") == 0)
+	{
+		if (index >= 2)
+		{
+			result = _unset_env(args[1]);
+			if (result == -1)
+			{
+				_printf("failed to unset environment variable: %s\n", args[1]);
+			}
+		}
+		return;
+	}
+
 
 	/* Find the path of the executable */
 	path = find_exe(args[0]);

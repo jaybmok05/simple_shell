@@ -30,6 +30,9 @@ int exit_shell(char **args);
 void print_env(void);
 void change_dir(int argc, char *argv[]);
 long _strtol(const char *str, char **endptr, int base);
+int set_env(const char *name, const char *value, int overwrite);
+int _unset_env(const char *name);
+char *_strchr(const char *str, int c);
 
 ssize_t own_getline(char **lineptr, size_t *n, FILE *stream);
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);

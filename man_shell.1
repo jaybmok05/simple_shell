@@ -1,0 +1,34 @@
+.TH Simple shell "10 May 2023 - 25 May 2023" "Version 1.0"
+.SH Simple Shell
+simple shell \- a simple shell that will execute basic commands in interactive
+non-interactive mode
+
+.SH SYNOPSIS
+.B $ echo "hello"
+.B hello
+
+.SH DESCRIPTION
+After compiling using gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh
+you will have an executable file "hsh". Run it in this way ./hsh
+it will display a prompt asking for input from user. Users can execute built-in
+commands in our shell.
+
+.SH Usage
+This is a basic shell it does the following:
+.IP \[bu]
+Display a prompt and wait for the user to type a command. A command line always ends with a new line.
+.IP \[bu]
+The prompt is displayed again each time a command has been executed.
+.IP \[bu]
+The command lines are simple, no semicolons, no pipes, no redirections or any other advanced features.
+.IP \[bu]
+The command lines are made only of one word.
+.IP \[bu]
+If an executable cannot be found, print an error message and display the prompt again.
+.IP \[bu]
+Handle errors.
+.IP \[bu]
+Handle the "end of file" condition (Ctrl+D)
+
+.SH AUTHORS
+This man page was written by @Sicelumusa1 and @jaybmok05

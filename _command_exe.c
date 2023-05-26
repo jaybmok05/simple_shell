@@ -15,7 +15,7 @@ void command_exe(char *command, int argc, char *argv[])
 	int status, index = 0;
 	char *args[BUFFER_SIZE];
 
-	while (_isspace (*command))
+	while (_isspace(*command))
 		command++;
 
 	if (_strlen(command) == 0)
@@ -79,6 +79,13 @@ void command_exe(char *command, int argc, char *argv[])
 	{
 		/* Parent process */
 		waitpid(pid, &status, 0);
+
+		/* check if the command failed*/
+		if (WIFEXITED(status) && WEXITSTATUS(status) != 0)
+		{
+			_printf("./hsh: command failed: %s\n", args[0]);
+			exit(EXIT_FAILURE);
+		}
 	}
 	free(path);
 }

@@ -29,6 +29,7 @@ char *construct_path(const char *directory, const char *command);
 int exit_shell(char **args);
 void print_env(void);
 void change_dir(int argc, char *argv[]);
+long _strtol(const char *str, char **endptr, int base);
 
 ssize_t own_getline(char **lineptr, size_t *n, FILE *stream);
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);

@@ -73,6 +73,12 @@ void command_exe(char *command, int argc, char *argv[])
 		}
 		return;
 	}
+	else if (_strcmp(args[0], "alias") == 0)
+	{
+		alias_cmd(argc, argv);
+		return;
+	}
+
 
 
 	/* Find the path of the executable */

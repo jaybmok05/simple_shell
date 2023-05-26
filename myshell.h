@@ -15,8 +15,17 @@
 #include <errno.h>
 #include <dirent.h>
 #include <stdbool.h>
-#define BUFFER_SIZE 1024
 
+#define BUFFER_SIZE 1024
+#define MAX_ALIASES 100
+#define MAX_ALIAS_LENGTH 100
+
+typedef struct {
+	char name[MAX_ALIAS_LENGTH];
+	char value[MAX_ALIAS_LENGTH];
+} alias_t;
+
+alias_t aliases[MAX_ALIASES];
 extern char **environ;
 
 /* list of function prototypes */
@@ -57,5 +66,8 @@ int _print_int(int num);
 int _puts(char *str);
 int _strncmp(const char *str1, const char *str2, size_t len);
 int _isspace(int c);
-
+int alias_cmd(int argc, char* argv[]);
+void add_alias(char* name, char* value);
+void print_aliases();
+void print_alias(alias_t alias);
 #endif /* MY_SHELL_H */

@@ -3,13 +3,13 @@
 int num_aliases = 0;
 
 /**
- * alias - a function for the buitl in command alias
+ * alias_cmd - a function for the buitl in command alias
  * @argc: the count of arguments
  * @argv: the arguments
  * Return: returns 0
  */
 
-int alias_cmd(int argc, char* argv[])
+int alias_cmd(int argc, char *argv[])
 {
 	char *name, *value;
 	int index, index_0;
@@ -53,6 +53,7 @@ int alias_cmd(int argc, char* argv[])
 
 /**
  * print_alias - a function that print the alias
+ * @alias: variable with command as value
  */
 
 void print_alias(alias_t alias)
@@ -61,10 +62,10 @@ void print_alias(alias_t alias)
 }
 
 /**
- * print_alias - a function print list of aliases
+ * print_aliases - a function print list of aliases
  */
 
-void print_aliases()
+void print_aliases(void)
 {
 	int index = 0;
 
@@ -81,7 +82,7 @@ void print_aliases()
  * @value: the value of the alias
  */
 
-void add_alias(char* name, char* value)
+void add_alias(char *name, char *value)
 {
 	int index = 0;
 

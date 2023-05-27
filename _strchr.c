@@ -3,7 +3,7 @@
 /**
  * _strchr - searches for the fisrt occurance of a character in a string
  * @str: pointer to string to search
- * #c: character searhing for
+ * @c: character searhing for
  * Return: pointer to the first occurance of the character
  */
 

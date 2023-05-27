@@ -13,7 +13,7 @@ int _unset_env(const char *name)
 
 	if (name == NULL || *name == '\0' || _strchr(name, '=') != NULL)
 	{
-		perror("Invalid variable name\n");;
+		perror("Invalid variable name\n");
 		return (-1);
 	}
 
